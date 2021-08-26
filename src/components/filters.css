@@ -1,0 +1,9 @@
+.filters {
+  padding: 4px 16px;
+  margin: 8px 0;
+  display: flex;
+}
+
+.filter {
+  margin-right: 4px;
+}

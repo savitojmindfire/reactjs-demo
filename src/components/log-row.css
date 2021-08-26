@@ -1,0 +1,17 @@
+.log-row {
+  display: flex;
+  margin: 4px 0;
+}
+
+.log-row-cell {
+  flex: 0 0 196px;
+  max-height: 120px;
+  overflow-y: auto;
+  margin: 0 1px;
+  background-color: hsla(0, 9.1%, 91%, 0.7);
+  padding: 4px 8px;
+}
+
+.log-row-cell.html {
+  flex: 0 0 252px;
+}

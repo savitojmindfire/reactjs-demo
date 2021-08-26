@@ -1,0 +1,45 @@
+.month-log {
+  overflow-x: auto;
+  background-color: hsla(0, 9.1%, 95%, 0.4);
+  border-radius: 8px;
+  margin: 16px 8px;
+}
+
+.month-log-heading {
+  margin-left: 8px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+.month-log-flex {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+}
+
+.month-log-key-flex {
+  display: flex;
+}
+.month-log-value-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-heading {
+  flex: 0 0 196px;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin: 0 1px;
+  padding: 4px 8px;
+}
+.column-heading.html {
+  flex: 0 0 252px;
+}
+
+@media screen and (min-width: 480px) {
+  .month-log-heading {
+    max-width: calc(100vw - 220px);
+  }
+}

@@ -1,0 +1,12 @@
+.button {
+  border: none;
+  background: none;
+  outline: none;
+
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin: 4px;
+}
+.selected {
+  background-color: red;
+}
