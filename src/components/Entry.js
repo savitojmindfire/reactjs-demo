@@ -3,11 +3,11 @@ import "./entry.css";
 
 import Form from "./utils/Form";
 
-const Entry = ({ addEntry, data_size }) => {
+const Entry = ({ addEntry, data_size, label }) => {
   const [is_modal, setIsModal] = React.useState(false);
   return (
     <div className="entry">
-      <button onClick={() => setIsModal(!is_modal)}>New Entry</button>
+      <button onClick={() => setIsModal(!is_modal)}>New Entry {label}</button>
       {is_modal && (
         <div className="modal">
           <button

@@ -31,7 +31,11 @@ const App = () => {
             setMomentToggle={setMomentToggle}
             is_moment={is_moment}
           />
-          <Entry addEntry={addEntry} data_size={data_array.length} />
+          <Entry
+            addEntry={addEntry}
+            data_size={data_array.length}
+            label="Global"
+          />
         </div>
         <Profiler id="LogMap" onRender={logTimes}>
           <LogMap

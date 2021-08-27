@@ -47,7 +47,11 @@ const MonthLog = ({ month, logs, data_keys, sender_filter, is_moment }) => {
     <div className="month-log">
       <div className="month-log-heading">
         <h3>{monthNames[month]}</h3>{" "}
-        <Entry addEntry={addEntry} data_size={2000 + logs.length} />
+        <Entry
+          addEntry={addEntry}
+          data_size={2000 + display_logs.length}
+          label={monthNames[month]}
+        />
         <MonthSort setMonthSort={setMonthSort} month_sort={month_sort} />
       </div>
       <div className="month-log-flex">
