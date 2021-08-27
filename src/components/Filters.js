@@ -1,5 +1,6 @@
 import React from "react";
 import "./filters.css";
+
 const Filter = ({
   setMonthFilter,
   setSenderFilter,
@@ -46,7 +47,7 @@ const Filter = ({
             <option value="amitabh">Amitabh</option>
             <option value="gaurav">Gaurav</option>
             <option value="sambit">Sambit</option>
-            <option value="saumya">Saumya</option>
+            <option value="aumya">Saumya</option>
             <option value="savitoj">Savitoj</option>
           </select>
         </div>,

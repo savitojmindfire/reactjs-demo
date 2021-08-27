@@ -1,25 +1,38 @@
 import React, { Profiler } from "react";
 import "./App.css";
 
-import data_array from "./mock/data.json";
+import data from "./mock/data.json";
 import LogMap from "./components/LogMap";
 import Filters from "./components/Filters";
+import Entry from "./components/Entry";
 
 const App = () => {
   const [month_filter, setMonthFilter] = React.useState(null);
   const [sender_filter, setSenderFilter] = React.useState(null);
   const [is_moment, setMomentToggle] = React.useState(false);
+  const [data_array, setDataArray] = React.useState(data);
+
+  const addEntry = (entry) => {
+    setDataArray((old_data) => {
+      const new_data = [...old_data];
+      new_data.push(entry);
+      return new_data;
+    });
+  };
 
   return (
     <div className="demo">
       <Stats />
       <div className="App">
-        <Filters
-          setMonthFilter={setMonthFilter}
-          setSenderFilter={setSenderFilter}
-          setMomentToggle={setMomentToggle}
-          is_moment={is_moment}
-        />
+        <div className="app-buttons">
+          <Filters
+            setMonthFilter={setMonthFilter}
+            setSenderFilter={setSenderFilter}
+            setMomentToggle={setMomentToggle}
+            is_moment={is_moment}
+          />
+          <Entry addEntry={addEntry} data_size={data_array.length} />
+        </div>
         <Profiler id="LogMap" onRender={logTimes}>
           <LogMap
             data_array={data_array}

@@ -4,6 +4,7 @@ import "./month-log.css";
 import LogRow from "./LogRow";
 import months from "../utils/months";
 import Button from "./utils/Button";
+import Entry from "./Entry";
 
 const MonthLog = ({ month, logs, data_keys, sender_filter, is_moment }) => {
   const monthNames = React.useMemo(() => {
@@ -29,10 +30,24 @@ const MonthLog = ({ month, logs, data_keys, sender_filter, is_moment }) => {
 
   React.useEffect(senderFilterEffect, [sender_filter, logs]);
 
+  const addEntry = (entry) => {
+    console.log("ENTERING", entry);
+    setDisplayLogs((display_logs) => {
+      const logs = [...display_logs];
+      logs.push(entry);
+      return logs;
+    });
+  };
+
+  React.useEffect(() => {
+    console.log("LOGS", display_logs);
+  }, [display_logs]);
+
   return (
     <div className="month-log">
       <div className="month-log-heading">
         <h3>{monthNames[month]}</h3>{" "}
+        <Entry addEntry={addEntry} data_size={2000 + logs.length} />
         <MonthSort setMonthSort={setMonthSort} month_sort={month_sort} />
       </div>
       <div className="month-log-flex">

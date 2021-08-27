@@ -1,0 +1,22 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 1%, 0.2);
+}
+
+.form-body {
+  position: absolute;
+  top: 20vh;
+  bottom: 20vh;
+  left: 20vw;
+  right: 20vw;
+  background-color: white;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
