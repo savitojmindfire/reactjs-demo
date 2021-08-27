@@ -1,6 +1,11 @@
 import React from "react";
 import "./filters.css";
-const Filter = ({ setMonthFilter, setSenderFilter }) => {
+const Filter = ({
+  setMonthFilter,
+  setSenderFilter,
+  setMomentToggle,
+  is_moment,
+}) => {
   return (
     <div className="filters">
       {[
@@ -41,10 +46,17 @@ const Filter = ({ setMonthFilter, setSenderFilter }) => {
             <option value="amitabh">Amitabh</option>
             <option value="gaurav">Gaurav</option>
             <option value="sambit">Sambit</option>
-            <option value="aumya">Saumya</option>
+            <option value="saumya">Saumya</option>
             <option value="savitoj">Savitoj</option>
           </select>
         </div>,
+        <button
+          onClick={() => {
+            setMomentToggle(!is_moment);
+          }}
+        >
+          Toggle moment: {is_moment ? "ON" : "OFF"}
+        </button>,
       ]}
     </div>
   );

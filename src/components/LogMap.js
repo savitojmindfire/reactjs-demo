@@ -2,7 +2,7 @@ import React from "react";
 import "./log-map.css";
 
 import MonthLog from "./MonthLog";
-const LogMap = ({ data_array, month_filter, sender_filter }) => {
+const LogMap = ({ data_array, month_filter, sender_filter, is_moment }) => {
   const [data_keys, setDataKeys] = React.useState([]);
   const [month_map, setMonthMap] = React.useState(new Map());
 
@@ -37,6 +37,7 @@ const LogMap = ({ data_array, month_filter, sender_filter }) => {
             data_keys={data_keys}
             key={key}
             sender_filter={sender_filter}
+            is_moment={is_moment}
           />
         );
       } else if (month_filter === "" + key) {
@@ -47,6 +48,7 @@ const LogMap = ({ data_array, month_filter, sender_filter }) => {
             data_keys={data_keys}
             key={key}
             sender_filter={sender_filter}
+            is_moment={is_moment}
           />
         );
       } else {
@@ -55,7 +57,7 @@ const LogMap = ({ data_array, month_filter, sender_filter }) => {
     });
 
     return render_components;
-  }, [month_map, data_keys, month_filter, sender_filter]);
+  }, [month_map, data_keys, month_filter, sender_filter, is_moment]);
 
   return (
     <div className="log-map">

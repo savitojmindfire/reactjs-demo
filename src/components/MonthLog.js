@@ -5,7 +5,7 @@ import LogRow from "./LogRow";
 import months from "../utils/months";
 import Button from "./utils/Button";
 
-const MonthLog = ({ month, logs, data_keys, sender_filter }) => {
+const MonthLog = ({ month, logs, data_keys, sender_filter, is_moment }) => {
   const monthNames = React.useMemo(() => {
     return months;
   }, []);
@@ -48,7 +48,7 @@ const MonthLog = ({ month, logs, data_keys, sender_filter }) => {
         <div className="month-log-value-flex">
           {!!display_logs.length
             ? display_logs.map((log) => {
-                return <LogRow log={log} key={log.id} />;
+                return <LogRow log={log} key={log.id} is_moment={is_moment} />;
               })
             : `No logs for ${month}`}
         </div>

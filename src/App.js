@@ -8,6 +8,7 @@ import Filters from "./components/Filters";
 const App = () => {
   const [month_filter, setMonthFilter] = React.useState(null);
   const [sender_filter, setSenderFilter] = React.useState(null);
+  const [is_moment, setMomentToggle] = React.useState(false);
 
   return (
     <div className="demo">
@@ -16,12 +17,15 @@ const App = () => {
         <Filters
           setMonthFilter={setMonthFilter}
           setSenderFilter={setSenderFilter}
+          setMomentToggle={setMomentToggle}
+          is_moment={is_moment}
         />
         <Profiler id="LogMap" onRender={logTimes}>
           <LogMap
             data_array={data_array}
             month_filter={month_filter}
             sender_filter={sender_filter}
+            is_moment={is_moment}
           />
         </Profiler>
       </div>
@@ -32,18 +36,21 @@ const App = () => {
 const Stats = () => {
   return (
     <div className="stats">
-      <div id="start-time"></div>
+      <div id="phase"></div>
+      <div id="render-time"></div>
       <div id="commit-time"></div>
     </div>
   );
 };
 
 const logTimes = (id, phase, actualTIme, baseTime, startTime, commitTime) => {
-  const startTimeEl = document.querySelector("#start-time");
-  const commitTimeEl = document.querySelector("#commit-time");
+  const phaseEl = document.querySelector("#phase");
+  const renderDurationEl = document.querySelector("#render-time");
+  const commitDurationEl = document.querySelector("#commit-time");
 
-  startTimeEl.innerHTML = `Start Time: ${startTime}ms`;
-  commitTimeEl.innerHTML = `Commit Time: ${commitTime - startTime}ms`;
+  phaseEl.innerHTML = `Phase: ${phase}`;
+  renderDurationEl.innerHTML = `Base Render Time: ${baseTime}ms`;
+  commitDurationEl.innerHTML = `Commit Time: ${commitTime - startTime}ms`;
 };
 
 export default App;
